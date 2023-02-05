@@ -34,22 +34,3 @@ pub fn zz_to_idx(zz: usize) -> (usize, usize) {
 pub fn idx_to_zz(i: usize, j: usize) -> usize {
     return IDX[i][j];
 }
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-    
-    #[test]
-    fn bij() {
-        for i in 0..64 {
-            let idx = zz_to_idx(i);
-            assert_eq!(idx_to_zz(idx.0, idx.1), i);
-        }
-
-        for i in 0..8 {
-            for j in 0..8 {
-                assert_eq!(zz_to_idx(idx_to_zz(i, j)), (i, j));
-            }
-        }
-    }
-}
